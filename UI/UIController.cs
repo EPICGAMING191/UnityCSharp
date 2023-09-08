@@ -9,8 +9,14 @@ public class UIController : MonoBehaviour{
     public int score;
     public TextMeshProUGUI scoreText;
     private int newScore_02;
+    public Button startButton;
+    private SceneController scs;
+
     // Start is called before the first frame update
     void Start(){
+        startButton=GetComponent<StartButton>();
+        scs=GetComponent<SceneController>();
+        startButton.OnClick.AddListener(loadStoryMode)
         score=0
         UpdateScore(0)
     }
@@ -28,5 +34,10 @@ public class UIController : MonoBehaviour{
     void AddPoints(int pointsToAdd){
         newScore_02=score + pointsToAdd;
         UpdateScore(newScore_02)
+    }
+
+    void loadStoryMode(){
+        scs.gameState=1;
+
     }
 }

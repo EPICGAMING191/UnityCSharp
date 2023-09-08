@@ -23,5 +23,9 @@ public class SceneController : MonoBehaviour
     void ReloadScene(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    void setState(int newState){
+        gameState = newState;
+    }
 }
 

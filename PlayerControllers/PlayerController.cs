@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerrb;
     public float jumpForce;
     public bool isOnGround = true;
-    public float gravityModifier;
+    public float gravityModifier = 1;
     private SceneController sc;
     // Start is called before the first frame update
     void Start()

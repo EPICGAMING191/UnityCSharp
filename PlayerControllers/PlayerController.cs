@@ -41,5 +41,8 @@ public class PlayerController : MonoBehaviour
         if(obj.gameObject.tag.Equals("ground") == true ){
             isOnGround=true;
         }
+        else if(obj.gameObject.tag.Equals("platform") == true){
+            isOnGround = true;
+        }
     }
 }

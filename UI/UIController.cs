@@ -11,13 +11,14 @@ public class UIController : MonoBehaviour{
     private int newScore_02;
     public Button startButton;
     private SceneController scs;
+    public GameObject titleScreen;
 
     // Start is called before the first frame update
     void Start(){
         startButton=GetComponent<StartButton>();
         scs=GetComponent<SceneController>();
         startButton.OnClick.AddListener(loadStoryMode)
-        score=0
+        score=0;
         UpdateScore(0)
     }
 
@@ -38,6 +39,6 @@ public class UIController : MonoBehaviour{
 
     void loadStoryMode(){
         scs.gameState=1;
-
+        titleScreen.GameObject.SetActive(false);
     }
 }

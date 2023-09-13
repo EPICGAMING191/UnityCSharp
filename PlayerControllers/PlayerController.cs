@@ -8,15 +8,18 @@ public class PlayerController : MonoBehaviour
     public GameObject player;
     public float horizontalInput;
     public float forwardInput;
-    public float speed = 20;
+    public float speed;
     private Rigidbody playerrb;
     public float jumpForce;
     public bool isOnGround = true;
     public float gravityModifier = 1;
-    private SceneController sc;
+    public SkillUnlocker su;
     // Start is called before the first frame update
     void Start()
     {
+        SceneController sc = FindObjectOfType<SceneController>(); 
+        speed=su.playerSpeed;
+        Debug.Log("Player Speed: " + speed);
         playerrb = GetComponent<Rigidbody>();
         sc = GetComponent<SceneController>(); 
         Physics.gravity*=gravityModifier;
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
+        speed=su.playerSpeed;
         if (sc.state !=0){
             forwardInput=Input.GetAxis("Vertical");
             horizontalInput=Input.GetAxis("Horizontal");

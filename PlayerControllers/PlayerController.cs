@@ -14,21 +14,23 @@ public class PlayerController : MonoBehaviour
     public bool isOnGround = true;
     public float gravityModifier = 1;
     public SkillUnlocker su;
+    public int state;
     // Start is called before the first frame update
     void Start()
     {
-        SceneController sc = FindObjectOfType<SceneController>(); 
+        SkillUnlocker su = FindObjectOfType<SkillUnlocker>(); 
         speed=su.playerSpeed;
         Debug.Log("Player Speed: " + speed);
         playerrb = GetComponent<Rigidbody>();
         sc = GetComponent<SceneController>(); 
         Physics.gravity*=gravityModifier;
+        state=-1
     }
 
     // Update is called once per frame
     void Update(){
         speed=su.playerSpeed;
-        if (sc.state !=0){
+        if (state !=0){
             forwardInput=Input.GetAxis("Vertical");
             horizontalInput=Input.GetAxis("Horizontal");
             transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);

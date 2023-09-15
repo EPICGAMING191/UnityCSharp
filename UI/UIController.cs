@@ -10,7 +10,7 @@ public class UIController : MonoBehaviour{
     public TextMeshProUGUI scoreText;
     private int newScore_02;
     public Button startButton;
-    public int state;
+    public int state = -1;
     public SkillUnlocker su;
     public UIController ui;
     public GameObject titleScreen;
@@ -22,6 +22,7 @@ public class UIController : MonoBehaviour{
         su=FindObjectOfType<SkillUnlocker>();
         startButton.OnClick.AddListener(loadStoryMode)
         score=0;
+        state=0;
         UpdateScore(0)
     }
 

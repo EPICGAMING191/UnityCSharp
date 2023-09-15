@@ -10,13 +10,16 @@ public class UIController : MonoBehaviour{
     public TextMeshProUGUI scoreText;
     private int newScore_02;
     public Button startButton;
-    private SceneController scs;
+    public int state;
+    public SkillUnlocker su;
+    public UIController ui;
     public GameObject titleScreen;
 
     // Start is called before the first frame update
     void Start(){
-        startButton=GetComponent<StartButton>();
-        scs=GetComponent<SceneController>();
+        startButton=GetComponent<Button>();
+        ui=FindObjectOfType<UIController>();
+        su=FindObjectOfType<SkillUnlocker>();
         startButton.OnClick.AddListener(loadStoryMode)
         score=0;
         UpdateScore(0)
